@@ -281,17 +281,7 @@
         }
       ]
     },
-    "day2b_solo_explore": {
-      "text": [
-        "📅 Day 2: You leave the group to explore alone.",
-        "The aisles are quieter now. Too quiet.",
-        "In the distance, a wooden tower stretches up toward the ceiling.",
-        "It’s lit at night. Maybe a signal? A settlement?",
-        "You decide to head there.",
-        "To be continued..."
-      ],
-      "choices": []
-    },
+   
   "day2a_defend_exchange": {
     "text": [
       "📅 Day 2A: Defense of Exchange",
@@ -308,10 +298,19 @@
       "After what feels like an hour, they retreat.",
       "Everyone breathes again."
     ],
-    "choices": {
-      "rest_talk": "Rest, eat, and talk with the others.",
-      "clean_scavenge": "Help clean up and dispose of the Staff corpses."
-    }
+   
+       "choices": [
+        {
+          "text": "Rest, eat, and talk with the others.",
+          "next": "rest_talk"
+        },
+         {
+          "text": "Help clean up and dispose of the Staff corpses.",
+          "next": "clean_scavenge"
+        }
+      ]
+     
+    
   },
   "rest_talk": {
     "text": [
@@ -332,11 +331,20 @@
 "When I finally stopped crying, I realized:This place doesn’t want peace.It lets you think you’re safe, then watches you hope—so it can crush you harder.",
 "That’s why Exchange doesn’t decorate. No lamps. No music. Just survival.You wanna live here? Don’t get cozy.The second you smile, they’ll take it away.",
 "The old man sighs, picking at a bandaged scar across his neck.",
-"“You got food? I’ll trade that story for a granola bar. Otherwise…",
-"Keep your boots laced. Don’t fall in love with your mattress.”"
+"“You got food? I’ll trade that story for a granola bar. Otherwise go report to ryan our leader and see to your assignment.",
+"Keep your boots laced. Don’t fall in love with your mattress.” "
 
     ],
-    "next": "meet_ryan"
+   
+       "choices": [
+        {
+          "text": "go talk to ryan, the leader of the settlement.",
+          "next": "meet_ryan"
+        }
+      ]
+     
+    
+    
   },
   "clean_scavenge": {
     "text": [
@@ -401,9 +409,17 @@
     "Holding hands.",
     "A blue-and-yellow IKEA sky above them.",
 
-      "You keep the finds. They might come in handy."
+      "You keep the finds, and head back to the gate of the settlement, the leader ryan has returned."
     ],
-    "next": "meet_ryan"
+    
+       "choices": [
+        {
+          "text": "go talk to ryan, the leader of the settlement.",
+          "next": "meet_ryan"
+        }
+      ]
+     
+    
   },
   "meet_ryan": {
     "text": [
@@ -415,10 +431,17 @@
       "They’re heading to raid a nearby settlement, Stone Nest, to access a café.",
       "He asks: “You want in? You look like you need some answers.”"
     ],
-    "choices": {
-      "join_ryan": "Join Ryan in the raid on Stone Nest.",
-      "stay_behind": "Decline and stay behind."
-    }
+    "choices": [
+        {
+          "text": "Join Ryan in the raid on Stone Nest.",
+          "next": "join_ryan"
+        },
+         {
+          "text": "Decline and stay behind in the camp",
+          "next": "stay_behind"
+        }
+      ]
+    
   },
   "join_ryan": {
     "text": [
@@ -443,10 +466,16 @@
       "bo told you that a drone flies by a couple hours ago.",
       "It broadcasts: “This is Site-22. Poi-10275,,If you hear this message, Report to extraction zones. Details encrypted.”"
     ],
-    "choices": {
-      "chase_drone": "Run after the drone, try to follow it.",
-      "report_to_ryan": "Return to Ryan and report what you saw."
-    }
+    "choices": [
+        {
+          "text": "Run after the drone, try to follow it.",
+          "next": "chase_drone"
+        },
+         {
+          "text": "return to Ryan and report what you saw.",
+          "next": "report_to_ryan"
+        }
+      ]
   },
   "chase_drone": {
     "text": [
@@ -455,7 +484,13 @@
       "It might be a clue. You mark the spot on your map.",
       "You return to Exchange, breathless."
     ],
-    "next": "day2a_end"
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day2a_end"
+        }
+      ]
+    
   },
   "report_to_ryan": {
     "text": [
@@ -467,16 +502,29 @@
       "i'm not sure which one i like better. as much as i hate that site, it's my home and there's someone waiting for me.",
       "i just hope she would still recognise me as i was...if I could escape in the first place. He stops for a moment, and states “we will have to track down that drone, if there's a exit in this place, the drone will be our best shot to find it”"
     ],
-    "next": "day2a_end"
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day2a_end"
+        }
+      ]
+    
   },
   "day2a_end": {
     "text": [
       "📅 Day 2 ends.",
-      "You survived another night in SCP-3008.",
-      "But nothing here stays safe for long..."    
-    ]
+      "You survived another day in SCP-3008. this night is quieter, only a few staff showed up and the guards dispatched of them without much hassle.",
+      "But nothing here stays safe for long..., ryan told you tomorrow he will being leading a team to retrieve the drone, and find out where the extraction zone can be,",
+      "if such thing does exist in this endless nightmare."    
+    ],
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day3a_start"
+        }
+      ]
   },
-  "day2b_start": {
+  "day2b_solo_explore": {
   "text": [
     "📅 Day 2B: Solo Exploration",
     "You leave Exchange alone.",
@@ -486,11 +534,21 @@
     "Someone built it. Recently. You head toward it.",
     "But there’s a long way between here and there..."
   ],
-  "choices": {
-    "path_b_rations": "Search nearby displays for food or supplies.",
-    "path_b_follow_whistle": "Follow a distant whistle. It sounds... human.",
-    "path_b_fast_route": "Stick to the shortest path through a dim 'Outdoor Furniture' section."
-  }
+  "choices": [
+        {
+          "text": "Search nearby displays for food or supplies.",
+          "next": "path_b_rations"
+        },
+         {
+          "text": "Follow a distant whistle. It sounds... human.",
+          "next": "path_b_follow_whistle"
+        },
+         {
+          "text": "Stick to the shortest path through a dim 'Outdoor Furniture' section.",
+          "next": "path_b_fast_route"
+        }
+      ]
+  
 },
 
 "path_b_rations": {
@@ -505,7 +563,13 @@
     "You take the bars. You’ll need the strength.",
     "(Inventory +2 food)"
   ],
-  "next": "path_b_midpoint"
+  "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
+ 
 },
 "path_b_follow_whistle": {
   "text": [
@@ -518,7 +582,12 @@
     "Then they swing up and vanish between display curtains.",
     "(Inventory: Foundation Visitor Badge)"
   ],
-  "next": "path_b_midpoint"
+   "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
 },
 
 "path_b_fast_route": {
@@ -533,7 +602,12 @@
     "When they pass, you move again—but the air feels colder now.",
     "(Sanity -1)"
   ],
-  "next": "path_b_midpoint"
+  "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
 },
 
 "path_b_midpoint": {
@@ -547,11 +621,21 @@
     "You crouch behind a faux plant wall. One wrong move could get you caught.",
     "But you see it now: the only way to learn more is to climb the tower itself."
   ],
-  "choices": {
-    "climb_tower_secretly": "Climb the tower now, while they’re distracted.",
-    "approach_as_follower": "Put on an apron from a discarded bin. Try to blend in.",
-    "retreat_and_observe": "Fall back and observe from a safer distance."
-  }
+    "choices": [
+        {
+          "text": "Climb the tower now, while they’re distracted.",
+          "next": "climb_tower_secretly"
+        },
+         {
+          "text": "Put on an apron from a discarded bin. Try to blend in.",
+          "next": "approach_as_follower"
+        },
+         {
+          "text": "Fall back and observe from a safer distance.",
+          "next": "retreat_and_observe"
+        }
+      ]
+  
 },
 
 "climb_tower_secretly": {
@@ -567,7 +651,13 @@
     "You hear someone coming up the ladder behind you..."
   
   ],
-  "next": "day2b_meet_ryan"
+   "choices": [
+        {
+          "text": "you turn to face the opproaching stranger",
+          "next": "day2b_meet_ryan"
+        }
+      ]
+  
 },
 
 "approach_as_follower": {
@@ -580,7 +670,13 @@
     "",
     "You feel sick. But you’ve gained their trust—for now."
   ],
-  "next": "day2b_end"
+  "choices": [
+        {
+          "text": "you scurray to the dormitary looking building on the tower and settle down for the night",
+          "next": "day2b_end"
+        }
+      ]
+ 
 },
 
 "retreat_and_observe": {
@@ -592,7 +688,12 @@
     "You watch for hours. When the lights dim again, you quietly slip away.",
     "You know too much to ignore this place now."
   ],
-  "next": "day2b_end"
+  "choices": [
+        {
+          "text": "you find a nearby shelf and climb a top,holding your breach as the sunlight dies down",
+          "next": "day2b_end"
+        }
+      ]
 },
 
 "day2b_end": {
@@ -602,7 +703,10 @@
     "But the tower—whatever it is—is not what you hoped.",
     "People living with the monsters.",
     "Worshiping them.",
-    "And you… were part of it. Or maybe you still are."
+    "And you can't get their image out of your head now.",
+    "perhaps you never will.",
+    "thanksfully you eventually doze off to sleep, into another world fully of unknown and oblivian."
+
   ]
 },
 
