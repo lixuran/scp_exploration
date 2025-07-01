@@ -41,10 +41,10 @@ SCP-122-1 is to be housed with the object."`,
 "failure_log": [
 "Experiment Log 122-E01: SCP-122-1 appeared drowsy and unwilling to communicate. No meaningful data gathered."
 ],
-"resource cost": 3,
-"time cost": 1,
-"success chance": 95,
-"info gathered if successful": 5,
+"resource_cost": 3,
+"time_cost": 1,
+"success_chance": 95,
+"info_gathered_if_successful": 5,
 "choices": [
 {
 "experiment_description": "Compare answers across multiple interviews.",
@@ -66,10 +66,10 @@ SCP-122-1 is to be housed with the object."`,
 "failure_log": [
 "Experiment Log 122-E02: New subject failed to establish connection. SCP-122 flickered. Subject reported nightmares. SCP-122-2 not reported. SCP-122-1 reintroduced."
 ],
-"resource cost": 8,
-"time cost": 4,
-"success chance": 60,
-"info gathered if successful": 8,
+"resource_cost": 8,
+"time_cost": 4,
+"success_chance": 60,
+"info_gathered_if_successful": 8,
 "choices": [
 {
 "experiment_description": "Compare cognitive profiles of Anna and new subject.",
@@ -91,10 +91,10 @@ SCP-122-1 is to be housed with the object."`,
 "failure_log": [
 "Experiment Log 122-E03: SCP-122 flickered rapidly. One subject had night terrors. Other subject remembered 'two angels fighting.' Test aborted."
 ],
-"resource cost": 10,
-"time cost": 6,
-"success chance": 50,
-"info gathered if successful": 10,
+"resource_cost": 10,
+"time_cost": 6,
+"success_chance": 50,
+"info_gathered_if_successful": 10,
 "choices": [
 {
 "experiment_description": "Attempt to isolate dream paths of each subject.",
