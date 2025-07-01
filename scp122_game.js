@@ -32,7 +32,7 @@ SCP-122-1 is to be housed with the object."`,
       { experiment_description: "Use Dual Subject Test", next: "experiment_03_dual_subject" }
     ]
   },
-  experiment_01_talk_child: {
+  "experiment_01_talk_child": {
 "experiment description": "Interview SCP-122-1 to gather subjective reports.",
 "success log": [
 "Experiment Log 122-E01: Interview with SCP-122-1 revealed consistent visualizations of SCP-122-2. Described as 'a big angel with wings who stands guard at night.' Subject shows affection and no signs of fear.",
@@ -57,7 +57,7 @@ SCP-122-1 is to be housed with the object."`,
 ]
 },
 
-experiment_02_replace_child: {
+"experiment_02_replace_child": {
 "experiment description": "Replace SCP-122-1 with another religious child subject.",
 "success log": [
 "Experiment Log 122-E02: New subject introduced (female, 8, Abrahamic background). SCP-122 activated properly. Subject reported: 'I saw a tall man with a glowing face. He told me I was safe here.'",
@@ -82,7 +82,7 @@ experiment_02_replace_child: {
 ]
 },
 
-experiment_03_dual_subject: {
+"experiment_03_dual_subject": {
 "experiment description": "Place two SCP-122-1 candidates in containment simultaneously.",
 "success log": [
 "Experiment Log 122-E03: Two subjects placed in shared room. SCP-122 glowed steadily. Both reported dreams of SCP-122-2 appearing more 'detailed' and 'louder' than usual.",
