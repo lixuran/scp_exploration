@@ -362,39 +362,42 @@ function runExperiment(expKey) {
   const gameDiv = document.getElementById("game");
   const logDiv = document.getElementById("log");
 
-  gameDiv.innerHTML = `<div class="experiment"><b>${exp.experiment_description}</b></div>`;
+  gameDiv.innerHTML = `<div class="experiment"><b>${exp.experiment_description || 'No description available'}</b></div>`;
   logDiv.innerText = "";
 
+  // Skip deduction for start node
   if (exp.resource_cost && exp.time_cost) {
-    // Check if enough resources/days
     if (gameState.resources < exp.resource_cost || gameState.days < exp.time_cost) {
       logDiv.innerText = "❌ Not enough resources or days to perform this experiment.";
       return;
     }
 
-    // Deduct resources
+    // Deduct resources and days
     gameState.resources -= exp.resource_cost;
     gameState.days -= exp.time_cost;
 
-    // Roll for success
+    // Roll for success/failure
     const success = Math.random() * 100 < exp.success_chance;
     const log = success ? exp.success_log : exp.failure_log;
     logDiv.innerText = `🔍 ${log[Math.floor(Math.random() * log.length)]}`;
 
-    if (success) gameState.info += exp.info_gathered_if_successful;
+    if (success) {
+      gameState.info += exp.info_gathered_if_successful;
+    }
   }
 
   updateStatus();
 
-  // Show next choices
+  // Show buttons for next choices
   if (exp.choices && exp.choices.length > 0) {
     exp.choices.forEach(choice => {
       const btn = document.createElement("button");
-      btn.innerText = choice.experiment_description;
+      btn.innerText = choice.experiment_description || "Continue";
       btn.onclick = () => runExperiment(choice.next);
       gameDiv.appendChild(btn);
     });
   } else {
+    // If no choices
     if (gameState.resources <= 0 || gameState.days <= 0) {
       gameDiv.innerHTML += "<p>🔚 You've run out of time or resources. The investigation ends here.</p>";
     } else {
@@ -402,7 +405,6 @@ function runExperiment(expKey) {
     }
   }
 }
-
 window.onload = () => {
   updateStatus();
   runExperiment("start");
