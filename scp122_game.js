@@ -33,7 +33,7 @@ SCP-122-1 is to be housed with the object."`,
     ]
   },
   "experiment_01_talk_child": {
-"experiment description": "Interview SCP-122-1 to gather subjective reports.",
+"experiment_description": "Interview SCP-122-1 to gather subjective reports.",
 "success log": [
 "Experiment Log 122-E01: Interview with SCP-122-1 revealed consistent visualizations of SCP-122-2. Described as 'a big angel with wings who stands guard at night.' Subject shows affection and no signs of fear.",
 "Emotional biometrics stable. SCP-122 showed no flickering during session."
@@ -47,18 +47,18 @@ SCP-122-1 is to be housed with the object."`,
 "info gathered if successful": 5,
 "choices": [
 {
-"experiment description": "Compare answers across multiple interviews.",
+"experiment_description": "Compare answers across multiple interviews.",
 "next": "experiment_04_repeat_interview"
 },
 {
-"experiment description": "Introduce art therapy session to explore subconscious detail.",
+"experiment_description": "Introduce art therapy session to explore subconscious detail.",
 "next": "experiment_06_art_therapy"
 }
 ]
 },
 
 "experiment_02_replace_child": {
-"experiment description": "Replace SCP-122-1 with another religious child subject.",
+"experiment_description": "Replace SCP-122-1 with another religious child subject.",
 "success log": [
 "Experiment Log 122-E02: New subject introduced (female, 8, Abrahamic background). SCP-122 activated properly. Subject reported: 'I saw a tall man with a glowing face. He told me I was safe here.'",
 "Calming effect radius remained consistent. SCP-122-2 manifestation observed in dream logs."
@@ -72,18 +72,18 @@ SCP-122-1 is to be housed with the object."`,
 "info gathered if successful": 8,
 "choices": [
 {
-"experiment description": "Compare cognitive profiles of Anna and new subject.",
+"experiment_description": "Compare cognitive profiles of Anna and new subject.",
 "next": "experiment_05_psych_analysis"
 },
 {
-"experiment description": "Introduce both children to SCP-122 simultaneously.",
+"experiment_description": "Introduce both children to SCP-122 simultaneously.",
 "next": "experiment_03_dual_subject"
 }
 ]
 },
 
 "experiment_03_dual_subject": {
-"experiment description": "Place two SCP-122-1 candidates in containment simultaneously.",
+"experiment_description": "Place two SCP-122-1 candidates in containment simultaneously.",
 "success log": [
 "Experiment Log 122-E03: Two subjects placed in shared room. SCP-122 glowed steadily. Both reported dreams of SCP-122-2 appearing more 'detailed' and 'louder' than usual.",
 "One subject recalled: 'He sang to us in the dark, like a hymn.'"
@@ -97,18 +97,18 @@ SCP-122-1 is to be housed with the object."`,
 "info gathered if successful": 10,
 "choices": [
 {
-"experiment description": "Attempt to isolate dream paths of each subject.",
+"experiment_description": "Attempt to isolate dream paths of each subject.",
 "next": "experiment_07_dream_divergence"
 },
 {
-"experiment description": "Monitor SCP-122-2 behavior for split manifestation.",
+"experiment_description": "Monitor SCP-122-2 behavior for split manifestation.",
 "next": "experiment_08_dual_entity"
 }
 ]
 },
 
 experiment_04_repeat_interview: {
-"experiment description": "Conduct repeated interviews over one week.",
+"experiment_description": "Conduct repeated interviews over one week.",
 "success log": [
 "Experiment Log 122-E04: Subject repeated consistent patterns in dream descriptions. SCP-122-2 appears regularly during dreams, closer to the bed each time.",
 "Language shifted to more affectionate. Reports of physical touch began: 'He brushed my hair. He tucked me in.'"
@@ -122,14 +122,14 @@ experiment_04_repeat_interview: {
 "info gathered if successful": 6,
 "choices": [
 {
-"experiment description": "Introduce dream journal to improve memory recall.",
+"experiment_description": "Introduce dream journal to improve memory recall.",
 "next": "experiment_09_dream_journal"
 }
 ]
 },
 
 experiment_05_psych_analysis: {
-"experiment description": "Run deep psychological profiling on subject pool.",
+"experiment_description": "Run deep psychological profiling on subject pool.",
 "success log": [
 "Experiment Log 122-E05: SCP-122-1 scores highest in religious conviction, empathy, and vivid dream capability. SCP-122 appears attuned to these qualities.",
 "High emotional IQ correlates to stable SCP-122-2 behavior. New profile matrix constructed."
@@ -143,14 +143,14 @@ experiment_05_psych_analysis: {
 "info gathered if successful": 7,
 "choices": [
 {
-"experiment description": "Match future candidates using refined profile matrix.",
+"experiment_description": "Match future candidates using refined profile matrix.",
 "next": "experiment_10_candidate_matrix"
 }
 ]
 },
 
 experiment_06_art_therapy: {
-"experiment description": "Guide SCP-122-1 through drawing sessions focused on dream imagery.",
+"experiment_description": "Guide SCP-122-1 through drawing sessions focused on dream imagery.",
 "success log": [
 "Experiment Log 122-E06: Artwork revealed increasingly humanoid form with glowing eyes and exaggerated wingspan. Symbolic items appeared in drawings over time.",
 "Subject reported: 'He has a key. He says it’s for the sky.'"
@@ -164,14 +164,14 @@ experiment_06_art_therapy: {
 "info gathered if successful": 6,
 "choices": [
 {
-"experiment description": "Attempt dream-triggered sketching via lucid suggestion.",
+"experiment_description": "Attempt dream-triggered sketching via lucid suggestion.",
 "next": "experiment_11_sketch_lucid"
 }
 ]
 },
 
 experiment_07_dream_divergence: {
-"experiment description": "Explore divergent dream experiences between dual subjects.",
+"experiment_description": "Explore divergent dream experiences between dual subjects.",
 "success log": [
 "Experiment Log 122-E07: Subjects described SCP-122-2 behaving differently for each child. One reported protection, the other silence.",
 "SCP-122 possibly interacting on separate frequency per subject. Entity may exhibit multi-threaded presence."
@@ -187,7 +187,7 @@ experiment_07_dream_divergence: {
 },
 
 experiment_08_dual_entity: {
-"experiment description": "Monitor for presence of more than one SCP-122-2 during dual test.",
+"experiment_description": "Monitor for presence of more than one SCP-122-2 during dual test.",
 "success log": [
 "Experiment Log 122-E08: Infrared dream overlays detected two discrete EM anomalies. Both described identically by each subject.",
 "Entities did not interact. Possible duplication or split-state anomaly. No aggression recorded."
@@ -203,7 +203,7 @@ experiment_08_dual_entity: {
 },
 
 experiment_09_dream_journal: {
-"experiment description": "Instruct SCP-122-1 to maintain a nightly journal of dream content.",
+"experiment_description": "Instruct SCP-122-1 to maintain a nightly journal of dream content.",
 "success log": [
 "Experiment Log 122-E09: Entries show emotional and symbolic evolution of SCP-122-2. Transition from distant observer to 'dream guardian'. Notable quote: 'He hummed a song. I think I knew it.'"
 ],
@@ -218,7 +218,7 @@ experiment_09_dream_journal: {
 },
 
 experiment_10_candidate_matrix: {
-"experiment description": "Use profile matrix to predict high-suitability SCP-122-1 candidates.",
+"experiment_description": "Use profile matrix to predict high-suitability SCP-122-1 candidates.",
 "success log": [
 "Experiment Log 122-E10: Matrix successfully predicted positive response in three new candidates. SCP-122 remained stable.",
 "SCP-122-2 consistent in dream presence across matrix matches. Key traits: faith, empathy, low anxiety."
@@ -234,7 +234,7 @@ experiment_10_candidate_matrix: {
 },
 
 experiment_11_sketch_lucid: {
-"experiment description": "Train SCP-122-1 in lucid dreaming to produce sketches post-dream.",
+"experiment_description": "Train SCP-122-1 in lucid dreaming to produce sketches post-dream.",
 "success log": [
 "Experiment Log 122-E11: Subject produced detailed sketches of SCP-122-2 anatomy. Includes sigil-like markings on wings, described as 'warm writing.'\nNeural patterns showed enhanced dream recall capacity."
 ],
@@ -248,7 +248,7 @@ experiment_11_sketch_lucid: {
 "choices": []
 },
 experiment_12_redundant_system: {
-"experiment description": "Design a multilayer failsafe system to prevent total power loss again.",
+"experiment_description": "Design a multilayer failsafe system to prevent total power loss again.",
 "success log": [
 "Experiment Log 122-E12: Engineering team developed a three-tiered power redundancy system, including manual crank generator and Faraday-shielded capacitors. System tested under simulated outage conditions.",
 "No disruption observed. SCP-122-1 remained asleep, reporting 'The angel was quiet and peaceful again. He didn't look scared.'",
@@ -263,18 +263,18 @@ experiment_12_redundant_system: {
 "info gathered if successful": 8,
 "choices": [
 {
-"experiment description": "Integrate dream logs with live biometric overlays for real-time emotional telemetry.",
+"experiment_description": "Integrate dream logs with live biometric overlays for real-time emotional telemetry.",
 "next": "experiment_14_biometrics_mapping"
 },
 {
-"experiment description": "Temporarily remove SCP-122-1 and observe object behavior without a host.",
+"experiment_description": "Temporarily remove SCP-122-1 and observe object behavior without a host.",
 "next": "experiment_16_no_host_test"
 }
 ]
 },
 
 experiment_13_entity_contact: {
-"experiment description": "Attempt vocal communication with the figures using audio prompts.",
+"experiment_description": "Attempt vocal communication with the figures using audio prompts.",
 "success log": [
 "Experiment Log 122-E13: Audio playback device installed near SCP-122. Messages directed at SCP-122-2 played during REM cycle: 'Who are you? Why are you here?'\nResult: Subject Anna began sobbing mid-sleep. Dream record: 'He looked like he wanted to answer, but then he screamed. He sounded like a hundred voices. It hurt.'\nAudio feedback loop recorded low-frequency static during event. Anomaly spiked in EM activity."
 ],
@@ -287,18 +287,18 @@ experiment_13_entity_contact: {
 "info gathered if successful": 12,
 "choices": [
 {
-"experiment description": "Attempt dream interview via drug-induced lucidity.",
+"experiment_description": "Attempt dream interview via drug-induced lucidity.",
 "next": "experiment_17_drug_lucid"
 },
 {
-"experiment description": "Use audio cues to try calming SCP-122-2 before communication.",
+"experiment_description": "Use audio cues to try calming SCP-122-2 before communication.",
 "next": "experiment_18_soothing_audio"
 }
 ]
 },
 
 experiment_14_biometrics_mapping: {
-"experiment description": "Integrate dream logs with live biometric overlays for real-time emotional telemetry.",
+"experiment_description": "Integrate dream logs with live biometric overlays for real-time emotional telemetry.",
 "success log": [
 "Experiment Log 122-E14: Full biometric suite (EEG, ECG, skin conductivity, thermal IR) integrated with dream reporting timeline.",
 "Observed strong correlation between SCP-122-1 REM fluctuations and shifts in SCP-122-2 form. Higher stress = distorted angel. Calm state = classic description.",
@@ -313,18 +313,18 @@ experiment_14_biometrics_mapping: {
 "info gathered if successful": 10,
 "choices": [
 {
-"experiment description": "Administer stress-relieving therapy prior to bedtime to stabilize SCP-122-2.",
+"experiment_description": "Administer stress-relieving therapy prior to bedtime to stabilize SCP-122-2.",
 "next": "experiment_19_therapy_effect"
 },
 {
-"experiment description": "Expose SCP-122-1 to various trauma-themed dreams and map results.",
+"experiment_description": "Expose SCP-122-1 to various trauma-themed dreams and map results.",
 "next": "experiment_20_dream_trauma_exposure"
 }
 ]
 },
 
 experiment_15_iconic_stimulus: {
-"experiment description": "Expose SCP-122 to symbolic religious icons to gauge reaction.",
+"experiment_description": "Expose SCP-122 to symbolic religious icons to gauge reaction.",
 "success log": [
 "Experiment Log 122-E15: Placed symbolic artifacts (Christian cross, Islamic prayer rug, Star of David) near SCP-122 and observed dream impact.",
 "Result: SCP-122-1 reported: 'He was brighter tonight. He stood between all the things. He held them like treasures.'",
@@ -339,11 +339,11 @@ experiment_15_iconic_stimulus: {
 "info gathered if successful": 9,
 "choices": [
 {
-"experiment description": "Introduce conflicting religious icons and observe outcome.",
+"experiment_description": "Introduce conflicting religious icons and observe outcome.",
 "next": "experiment_21_icon_conflict"
 },
 {
-"experiment description": "Test SCP-122 with icon-free environment to establish control.",
+"experiment_description": "Test SCP-122 with icon-free environment to establish control.",
 "next": "experiment_22_iconless_control"
 }
 ]
