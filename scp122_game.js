@@ -26,10 +26,10 @@ Special Containment Procedures:
 Security camera installed for monitoring.
 
 SCP-122-1 is to be housed with the object."`,
-    choices: [
-      { experiment_description: "Interview SCP-122-1", next: "experiment_01_talk_child" },
-      { experiment_description: "Replace SCP-122-1", next: "experiment_02_replace_child" },
-      { experiment_description: "Use Dual Subject Test", next: "experiment_03_dual_subject" }
+    "choices": [
+      { "experiment_description": "Interview SCP-122-1", "next": "experiment_01_talk_child" },
+      { "experiment_description": "Replace SCP-122-1", "next": "experiment_02_replace_child" },
+      { "experiment_description": "Use Dual Subject Test", "next": "experiment_03_dual_subject" }
     ]
   },
   "experiment_01_talk_child": {
