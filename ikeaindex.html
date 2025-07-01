@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinite IKEA Text Adventure</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; max-width: 700px; margin: auto; }
+    #story { white-space: pre-wrap; margin-bottom: 20px; }
+    .choice-btn { display: block; margin: 5px 0; padding: 10px; background: #222; color: #fff; border: none; cursor: pointer; border-radius: 5px; }
+    .choice-btn:hover { background: #444; }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Infinite IKEA</h1>
+  <div id="story"></div>
+  <div id="choices"></div>
+
+  <script>
+    const gameData = /* Paste your full JSON here without the outer backticks */ {
+  "start": "intro",
+  "nodes": {
+    "intro": {
+      "text": [
+        "🛒 Infinite IKEA: Day 1",
+        "You:",
+        "Okay. This is weird.",
+        "I was just looking for a new desk lamp… and now I can’t find the entrance.",
+        "I’ve been circling the same “Lighting” section for 10 minutes.",
+        "None of the signs make sense anymore.",
+        "No staff. No customers. No exits. No cell service.",
+        "This is starting to feel… wrong.",
+        "The lights just flickered. No, wait—",
+        "They just shut off completely. It’s pitch black in here.",
+        "What do I do?"
+      ],
+      "choices": [
+        {
+          "text": "Use your phone’s flashlight and look for a place to hide.",
+          "next": "path1_flashlight_hide"
+        },
+        {
+          "text": "Head toward the food court. You might need supplies.",
+          "next": "path2_intro"
+        },
+        {
+          "text": "Try to retrace your steps to the front entrance.",
+          "next": "path3_intro"
+        }
+      ]
+    },
+    "path1_flashlight_hide": {
+      "text": [
+        "You:",
+        "Found some beds. The kind with those nice memory foam mattresses.",
+        "I’m lying low here now.",
+        "Everything’s quiet except the hum of emergency lighting and… Wait.",
+        "I just heard footsteps. Slow. Shuffling. Coming down the aisle behind me.",
+        "It’s tall. Too tall. Yellow shirt. Blue pants. But… No face.",
+        "What do I do?"
+      ],
+      "choices": [
+        {
+          "text": "A. Stay completely still and hope it passes.",
+          "next": "path1a_stay_still"
+        },
+        {
+          "text": "B. Try to sneak away quietly.",
+          "next": "path1b_sneak_away"
+        }
+      ]
+    },
+    "path1a_stay_still": {
+      "text": [
+        "You:",
+        "I didn’t move a muscle.",
+        "It walked right past the bed. Stopped for a second.",
+        "Tilted its head like it sensed something.",
+        "Then it kept walking.",
+        "I can’t breathe.",
+        "Okay. It's gone.",
+        "Lights are flickering back on.",
+        "Feels like morning, if that still means anything in here.",
+        "I got up and moved fast.",
+        "Found a wall made of stacked dressers and coffee tables.",
+        "Some kind of… barricade.",
+        "There are people here. Real people.",
+        "They waved me in and shut the entrance behind me.",
+        "They call the place “Exchange.” Apparently it’s a settlement.",
+        "They said I got lucky.",
+        "Day 1: Survived ✅",
+        "Status: Alive, uninjured",
+        "Discovery: First encounter with \"Staff\", found survivor outpost",
+        "Inventory: Phone (10% battery), no food, no weapons"
+      ],
+      "choices": [
+        {
+          "text": "🟩 Stay and help defend Exchange during the night?",
+          "next": "day2a_defend_exchange"
+        },
+        {
+          "text": "🟨 Sneak out tomorrow to explore on your own?",
+          "next": "day2b_solo_explore"
+        }
+      ]
+    },
+    "path1b_sneak_away": {
+      "text": [
+        "You:",
+        "I started crawling backward as quietly as I could.",
+        "Then my knee hit a metal bedframe.",
+        "Clang.",
+        "The Staff turned.",
+        "It didn’t run. It just started walking toward me. Fast.",
+        "I bolted. Through aisles, past kitchens, living room displays.",
+        "I think I lost it. Maybe.",
+        "But I banged up my arm and dropped my phone.",
+        "Still got out of there, somehow.",
+        "Found a wall made of dressers and bookshelves. Torches.",
+        "Voices called out. They helped pull me inside.",
+        "They call this place “Exchange.”",
+        "Day 1: Survived ✅",
+        "Status: Injured arm, no phone",
+        "Discovery: Staff pursue aggressively when provoked. Safe zones exist.",
+        "Inventory: No phone, no food, no weapons"
+      ],
+      "choices": [
+        {
+          "text": "🟩 Rest and recover with the Exchange group",
+          "next": "day2a_defend_exchange"
+        },
+        {
+          "text": "🟨 Sneak out again tomorrow. You need answers.",
+          "next": "day2b_solo_explore"
+        }
+      ]
+    },
+    "day2b_solo_explore": {
+      "text": [
+        "📅 Day 2: You leave the group to explore alone.",
+        "The aisles are quieter now. Too quiet.",
+        "In the distance, a wooden tower stretches up toward the ceiling.",
+        "It’s lit at night. Maybe a signal? A settlement?",
+        "You decide to head there.",
+        "To be continued..."
+      ],
+      "choices": []
+    },
+"path2_intro": {
+      "text": [
+        "🛒 Infinite IKEA: Day 1 (Alternate Paths)",
+        "▶️ Path 2: Go to the restaurant",
+        "I’m heading toward the restaurant. Maybe it’s all just a blackout. Maybe someone’s still here.",
+        "Everything’s… Fresh?",
+        "There’s a tray with warm meatballs just sitting there. No staff. No smell of cooking. They’re just… there.",
+        "Screw it. I’m starving.",
+        "Okay, ate fast. Took some extra food too. Still no signs of life. Just this weird feeling like I’m being watched.",
+        "The lights just dimmed again.",
+        "No. No no no.",
+        "Full blackout. I need to move. Now."
+      ],
+      "choices": [
+        {
+          "text": "A. Grab food and find shelter immediately.",
+          "next": "path2a_grab_and_run"
+        },
+        {
+          "text": "B. Stay and explore the kitchen — maybe there’s someone behind all this.",
+          "next": "path2b_explore_kitchen"
+        }
+      ]
+    },
+    "path2a_grab_and_run": {
+      "text": [
+        "Took what I could carry. Sprinted into the dark with just my phone light.",
+        "Almost ran headfirst into one of them.",
+        "Staff. Too tall. No face. Same uniform.",
+        "It didn’t see me. I ducked behind a wardrobe and waited.",
+        "Eventually I found a wall of furniture — a whole perimeter. Lights! Torches! People!",
+        "A guy shouted for me to run toward them.",
+        "They pulled me in, sealed the entrance.",
+        "They call it “Exchange.” A town. Inside IKEA.",
+        "They ration food. Use beds as shelter. Say I got lucky.",
+        "Day 1: Survived ✅",
+        "Status: Alive, carrying food",
+        "Discovery: SCP-3008’s Staff are active at night",
+        "Joined: Survivor group at Exchange"
+      ],
+      "choices": [
+        {
+          "text": "🟩 Stay and help defend Exchange during the night?",
+          "next": "day2a_defend_exchange"
+        },
+        {
+          "text": "🟨 Sneak out tomorrow to explore on your own?",
+          "next": "day2b_solo_explore"
+        }
+      ]
+    },
+    "path2b_explore_kitchen": {
+      "text": [
+        "You stay in the kitchen and open a back door…",
+        "There’s a sound behind the storage curtain.",
+        "You whisper: “Hello?”",
+        "Then you hear it. 'The store is now closed. Please exit the building.'",
+        "You turn.",
+        "Too late.",
+        "They see you.",
+        "Ending: Caught and killed by Staff — The store is now closed."
+      ],
+      "choices": [
+        {
+          "text": "🔁 Restart Day 1",
+          "next": "intro"
+        }
+      ]
+    },
+    "path3_intro": {
+      "text": [
+        "▶️ Path 3: Retrace your steps to find the exit",
+        "Backtracking now. Trying to find the entrance again.",
+        "I’ve passed the same couch three times.",
+        "Wait… No. It’s not the same couch.",
+        "There’s a ladder. Against a stock shelf.",
+        "Climbing up. Maybe I’ll get a better view.",
+        "Holy crap. It just goes on forever. Shelves. Aisles. Tables. Lights in the distance.",
+        "Like a city of furniture.",
+        "Hold on— I see someone."
+      ],
+      "choices": [
+        {
+          "text": "A. Call out to them. Maybe they can help.",
+          "next": "path3a_call_out"
+        },
+        {
+          "text": "B. Hide and observe. They might not be friendly.",
+          "next": "path3b_hide"
+        }
+      ]
+    },
+    "path3a_call_out": {
+      "text": [
+        "“Hey! Hello?!”",
+        "They looked. Waved. Two people — a man and a woman.",
+        "Ran over to me.",
+        "Their names are Sandra and Jerry. They’ve been stuck here for weeks.",
+        "They said there's no fixed exit. Shelves rearrange. Walls move. The Staff come out at night.",
+        "They invited me to their settlement. Told me I wouldn’t last a night alone.",
+        "Day 1: Survived ✅",
+        "Status: Joined survivors Sandra & Jerry",
+        "Discovery: Store is shifting. Exits are not stable.",
+        "Inventory: No food, no weapon",
+        "Mental State: Cautiously optimistic"
+      ],
+      "choices": [
+        {
+          "text": "🟩 Follow them to their settlement.",
+          "next": "day2a_defend_exchange"
+        },
+        {
+          "text": "🟨 Head off on your own path.",
+          "next": "day2b_solo_explore"
+        }
+      ]
+    },
+    "path3b_hide": {
+      "text": [
+        "You crouch behind a chair, watching silently.",
+        "They pass nearby. They seem… normal. But you don’t move.",
+        "You decide to keep moving alone.",
+        "You wander for hours. Your phone battery’s nearly dead.",
+        "Darkness falls.",
+        "You hear the voice: 'The store is now closed. Please exit the building.'",
+        "Something grabs your arm.",
+        "Ending: Captured by Staff — fate unknown."
+      ],
+      "choices": [
+        {
+          "text": "🔁 Restart Day 1",
+          "next": "intro"
+        }
+      ]
+    },
+   
+  "day2a_defend_exchange": {
+    "text": [
+      "📅 Day 2A: Defense of Exchange",
+      "You stay with the people of Exchange. Tonight, they expect an attack.",
+      "The barricades are high—couches, tables, entire shelving units lashed together with extension cords and twine.",
+      "Someone hands you a broom handle with a sharpened screw taped to the tip. It shakes in your hand.",
+      "The lights flicker.",
+      "A loudspeaker voice crackles from nowhere: “THE STORE IS NOW CLOSED. PLEASE EXIT THROUGH THE FRONT ENTRANCE.”",
+      "Everyone freezes. That voice never means anything good.",
+      "Then they come.",
+      "Tall, faceless, unnaturally strong. The Staff. They rush the barricades without sound.",
+      "You jab forward with your makeshift spear. One of the Staff crashes through a weak point and collapses inside the perimeter. You and another survivor leap on it—hitting, stabbing, driving it back.",
+      "Another Staff slips in. This one almost grabs a young girl, but a heavy hammer swings from nowhere and shatters its knee. It folds and twitches. Then goes still.",
+      "After what feels like an hour, they retreat.",
+      "Everyone breathes again."
+    ],
+   
+       "choices": [
+        {
+          "text": "Rest, eat, and talk with the others.",
+          "next": "rest_talk"
+        },
+         {
+          "text": "Help clean up and dispose of the Staff corpses.",
+          "next": "clean_scavenge"
+        }
+      ]
+     
+    
+  },
+  "rest_talk": {
+    "text": [
+      "🛏️ You collapse on a mattress next to a warm lantern.",
+      "Someone hands you a half-empty bottle of soda and a bruised protein bar.",
+      "You chat with:",
+      "- Linda, a schoolteacher turned barricade engineer.",
+      "- Omar, former IKEA night shift worker.",
+      "- Mirin, a conspiracy theorist who believes SCP-3008 is a weapon.",
+      "Most kept busy and kept their chat short. It’s the only way to survive. But not old larry. he leans against the rear wall of the Exchange with a grin look and becon to you,",
+      "if you wanta survive in here, i suggest u make urself useful. You know why we all sleep with one eye open? Sit down, kid. I’ll tell you what happened at the last settlement where i'm from.",
+      "We called it Pine Nest because the IKEA display there was all pinewood shelves, chairs, dressers. When the realization set in that we weren’t getting out—not today, not tomorrow—a few of us decided to stop surviving and start living.",
+      "We cleared space. Built walls from bedframes, tables, rugs for insulation. Even strung fairy lights powered by salvaged car batteries. It looked… homey.",
+"There was Lian, who used to be an interior decorator—she designed the whole layout. Put chairs around fake fireplaces, created little “apartments” for each of us. We had Ravi, a software guy, who reprogrammed one of the info kiosks to play music. Jazz, mostly. At night we’d sit around eating meatballs and listening to Coltrane echo through the aisles. And Miri—our chef She could make a meal from nothing. Canned lingonberry jam, frozen fish sticks, even managed coffee from some hidden stash. She said, “If I die in IKEA, I’ll die with dignity—and breakfast.We had 14 people. 14 stories. 14 hopes.",
+"The Staff didn’t come often. They walked past. Stared sometimes. But Pine Nest was peaceful for weeks. We thought maybe—just maybe—we’d done it right. Some even said this place wasn’t a curse. That maybe we were chosen.And we started to believe it.",
+"Then it happended. That night, the lights didn't flicker like usual. They shattered. Overhead bulbs bursting like popcorn in the sky. We ran to the walls.We saw the first Staff entity leap the barrier. Leap. It moved wrong. Like a broken marionette made of wet towels and hatred. It smashed through chairs, tore the rug barricades like tissue. We screamed.Miri tried to distract one so the kids could run. She didn’t make it. Ravi grabbed a lamp and tried to fight. We found half the lamp the next day. Not him. Lian? She locked herself in the fake “bedroom” setup. The kind with the fake window and plastic curtains. The door wasn’t even real. They dragged the whole set away. She screamed the whole time. I don’t think they kill you fast.",
+"I survived because I ran. I didn’t look back. Just ran until I collapsed under a pyramid of Malm drawers.",
+"When I finally stopped crying, I realized:This place doesn’t want peace.It lets you think you’re safe, then watches you hope—so it can crush you harder.",
+"That’s why Exchange doesn’t decorate. No lamps. No music. Just survival.You wanna live here? Don’t get cozy.The second you smile, they’ll take it away.",
+"The old man sighs, picking at a bandaged scar across his neck.",
+"“You got food? I’ll trade that story for a granola bar. Otherwise go report to ryan our leader and see to your assignment.",
+"Keep your boots laced. Don’t fall in love with your mattress.” "
+
+    ],
+   
+       "choices": [
+        {
+          "text": "go talk to ryan, the leader of the settlement.",
+          "next": "meet_ryan"
+        }
+      ]
+     
+    
+    
+  },
+  "clean_scavenge": {
+    "text": [
+      "🧹 You help drag the Staff bodies out past the barricade.",
+      "They’re strangely heavy. Like wet cardboard filled with concrete. No blood. No bones.",
+      "You find a burnt Foundation keycard.",
+      "Behind a broken bedframe, you discover a metal locker.",
+      "Inside: a flare gun, a bottle of painkillers, and a torn diary, it reads",
+      "📅 Day 14",
+    "I found the kid under a display table.",
+    "Maybe 7 years old. Maybe younger.",
+    "He didn’t cry. Just sat cross-legged on the floor, drawing on flattened napkins with one of those IKEA golf pencils.",
+    "",
+    "I asked him his name. He said, “Marcus.”",
+    "I asked where his parents were. He said, “They went out when the lights turned off. But they didn’t come back.”",
+    "",
+    "He didn’t seem afraid.",
+    "He just kept drawing — people, doors, stars, lots of stars.",
+    "He gave me one of the napkins. “This is you,” he said.",
+    "Stick figure. Big smile. Holding a broomstick like a spear.",
+    "",
+    "📅 Day 17",
+    "Marcus doesn’t talk much.",
+    "He follows me like a shadow, clutching a pillowcase full of crayons and napkins.",
+    "I found some instant noodles in a broken vending machine. We shared.",
+    "That night, we hid under a staircase and he whispered:",
+    "“Do you think the Staff get lonely?”",
+    "I didn’t answer.",
+    "",
+    "📅 Day 21",
+    "We reached a settlement today — a place called “Lamplight.”",
+    "People welcomed us. I offered to help in exchange for food.",
+    "Marcus gave the guards each a crayon drawing. One was of a table fort. The other was a cat wearing glasses.",
+    "They laughed. Said it was the first time they’d smiled in weeks.",
+    "",
+    "📅 Day 26",
+    "There was an attack last night.",
+    "A Staff breached the barricade near the bedding section.",
+    "In the chaos, Marcus got separated.",
+    "",
+    "We found him hours later…",
+    "Hiding under a flipped display bathtub, surrounded by crayon drawings plastered like wallpaper.",
+    "He said he was trying to “make the monster happy.”",
+    "",
+    "📅 Day 29",
+    "He started calling me “Mom.”",
+    "At first, I corrected him.",
+    "Now I just hold him a little tighter.",
+    "",
+    "📅 Day 36",
+    "One of the old-timers says there might be an exit near the warehouse ceiling — a “reset door.”",
+    "Most think it’s just a myth.",
+    "But Marcus drew it this morning.",
+    "",
+    "He handed me the napkin and said,",
+    "“We’ll find the real door, okay? So we can go home. And if we can’t… you can be my home.”",
+    "",
+    "🖍️attached on that page is a  crayon drawing , half torn apart by what looks like some very sharp paws",
+    "",
+    "Two stick figures.",
+    "One tall, one small.",
+    "Holding hands.",
+    "A blue-and-yellow IKEA sky above them.",
+
+      "You keep the finds, and head back to the gate of the settlement, the leader ryan has returned."
+    ],
+    
+       "choices": [
+        {
+          "text": "go talk to ryan, the leader of the settlement.",
+          "next": "meet_ryan"
+        }
+      ]
+     
+    
+  },
+  "meet_ryan": {
+    "text": [
+      "🧍 You hear shouting. A group of fighters is suiting up.",
+      "At the front is Ryan—shirtless except for a tactical vest.",
+      "“Newbie?” he grins. “You look like you didn’t get stepped on last night.”",
+      "He tells you he’s SCP-████, regenerates from death. Sent here again and again.",
+      "“You’d think dying’d make me scared. It doesn’t. Just bored.”",
+      "They’re heading to raid a nearby settlement, Stone Nest, to access a café.",
+      "He asks: “You want in? You look like you need some answers.”"
+    ],
+    "choices": [
+        {
+          "text": "Join Ryan in the raid on Stone Nest.",
+          "next": "join_ryan"
+        },
+         {
+          "text": "Decline and stay behind in the camp",
+          "next": "stay_behind"
+        }
+      ]
+    
+  },
+  "join_ryan": {
+    "text": [
+      "⚔️ You march for hours. Stone Nest looms—cribs, bunk beds, mannequins as sentries.",
+      "They attack. You fight through curtains and kitchenware.",
+      "The defenders look like monsters—shredded bedsheets, painted skin, broken furniture weapons. One of them wore a weirdly brown colored dry leather armor and a spear that seems to be made out of a fishing rod.",
+      "Juding by his stature and equipment, you guessed it was their leader. Ryan charged straight at him, receiving multiple terrible gashs along the way, and pierced him with a reinforced umbrella",
+      "terrified by ryan brutal and blood thristy assault and his disregard of self preservation, the rest of them scatter soon after the leader falls. Afterward, you realize… they were people.",
+      "you hear someone cries over a fallen friend.",
+      "Ryan says, “They were hoarding the café. We needed it.” Then he clapsed to the ground, blood forming a paddle under him. seconds later, another one popped into existance, and continued 'killing their leader would be the fastest way to end the conflict, so that's that', he picked up his umbrella and waked off",
+      "As you begin to collect the food and return to settlement, You feel like you are at your limit with this place. (your sanity go down by 2)"
+    ],
+    "next": "day2a_end"
+  },
+  "stay_behind": {
+    "text": [
+      "🌆 You explore the rest of the camp:",
+      "- Alex, who draws maps that change weekly.",
+      "- Jay, a teen who collects IKEA pencils.",
+      "- Bo, who followed a drone to a broken wall once.",
+      "You learn about Exchange’s origins and survivor factions.",
+      "bo told you that a drone flies by a couple hours ago.",
+      "It broadcasts: “This is Site-22. Poi-10275,,If you hear this message, Report to extraction zones. Details encrypted.”"
+    ],
+    "choices": [
+        {
+          "text": "Run after the drone, try to follow it.",
+          "next": "chase_drone"
+        },
+         {
+          "text": "return to Ryan and report what you saw.",
+          "next": "report_to_ryan"
+        }
+      ]
+  },
+  "chase_drone": {
+    "text": [
+      "🚁 You sprint after the drone. It darts between shelves and disappears into the dark.",
+      "But you catch a glimpse: a glowing mark on a wall where it vanished.",
+      "It might be a clue. You mark the spot on your map.",
+      "You return to Exchange, breathless."
+    ],
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day2a_end"
+        }
+      ]
+    
+  },
+  "report_to_ryan": {
+    "text": [
+      "📡 You find Ryan cleaning his weapon.",
+      "You explain what you saw. The drone. The message.",
+      "He frowns. “Site-22, huh? They’re still watching.”",
+      "He thanks you, and stares into the distance.",
+      "“it feels like a life time ago but...that's where i'm from. It's a place with shitty coffee and smell of anti-deloderate. Some of the resesarchers there treat me as a recyclable lab rat while others treat me as some kind of monster that might turn feral and bit their head off one day.",
+      "i'm not sure which one i like better. as much as i hate that site, it's my home and there's someone waiting for me.",
+      "i just hope she would still recognise me as i was...if I could escape in the first place. He stops for a moment, and states “we will have to track down that drone, if there's a exit in this place, the drone will be our best shot to find it”"
+    ],
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day2a_end"
+        }
+      ]
+    
+  },
+  "day2a_end": {
+    "text": [
+      "📅 Day 2 ends.",
+      "You survived another day in SCP-3008. this night is quieter, only a few staff showed up and the guards dispatched of them without much hassle.",
+      "But nothing here stays safe for long..., ryan told you tomorrow he will being leading a team to retrieve the drone, and find out where the extraction zone can be,",
+      "if such thing does exist in this endless nightmare."    
+    ],
+    "choices": [
+        {
+          "text": "thats enough for one day",
+          "next": "day3a_start"
+        }
+      ]
+  },
+  "day2b_solo_explore": {
+  "text": [
+    "📅 Day 2B: Solo Exploration",
+    "You leave Exchange alone.",
+    "The aisles stretch endlessly. Silent, still, and choked with dust.",
+    "You pass makeshift camps—some burned out, others eerily empty.",
+    "You spot the tower far off: three stories tall, flickering lights at the top.",
+    "Someone built it. Recently. You head toward it.",
+    "But there’s a long way between here and there..."
+  ],
+  "choices": [
+        {
+          "text": "Search nearby displays for food or supplies.",
+          "next": "path_b_rations"
+        },
+         {
+          "text": "Follow a distant whistle. It sounds... human.",
+          "next": "path_b_follow_whistle"
+        },
+         {
+          "text": "Stick to the shortest path through a dim 'Outdoor Furniture' section.",
+          "next": "path_b_fast_route"
+        }
+      ]
+  
+},
+
+"path_b_rations": {
+  "text": [
+    "You detour toward a kitchen showroom cluster.",
+    "Pantries, fridges, fake sinks.",
+    "Behind a wardrobe, you find a body—long decayed, wrapped in sheets like a cocoon.",
+    "Next to it: a box of stale protein bars, a cracked watch still ticking, and a journal page:",
+    "",
+    "📖 'I thought the lights flickering was a warning. Turns out, it’s a countdown.'",
+    "",
+    "You take the bars. You’ll need the strength.",
+    "(Inventory +2 food)"
+  ],
+  "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
+ 
+},
+"path_b_follow_whistle": {
+  "text": [
+    "You follow the whistle.",
+    "It echoes strangely between the shelves.",
+    "Then you see them—two kids, no older than 10, perched on a hanging hammock above a mock patio.",
+    "One of them grins: 'You’re lucky. The ground's not safe today.'",
+    "Before you can ask what they mean, a Staff walks past below—calm, quiet… dragging a crib behind it like a sled.",
+    "The kids toss you a lanyard: an old Foundation passcard, with 'VISITOR' burned into the plastic.",
+    "Then they swing up and vanish between display curtains.",
+    "(Inventory: Foundation Visitor Badge)"
+  ],
+   "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
+},
+
+"path_b_fast_route": {
+  "text": [
+    "You slip into the 'Outdoor Furniture' section.",
+    "It’s dark. Cold.",
+    "You hear humming. Not mechanical—human. Tuneless.",
+    "You crouch and crawl under a plastic picnic table.",
+    "Three figures pass: wearing IKEA aprons. Walking in rhythm. Eyes closed.",
+    "Behind them walks a Staff, dragging a wheelbarrow full of batteries and tools.",
+    "You hold your breath.",
+    "When they pass, you move again—but the air feels colder now.",
+    "(Sanity -1)"
+  ],
+  "choices": [
+        {
+          "text": "the journey continues",
+          "next": "path_b_midpoint"
+        }
+      ]
+},
+
+"path_b_midpoint": {
+  "text": [
+    "You finally reach the base of the tower.",
+    "It’s bigger than you thought. Built from bedframes, tied with cables and blankets.",
+    "Below it, a camp of 30–40 people. Every one of them dressed in pristine IKEA uniforms.",
+    "They move with eerie synchronization—no talking, just gestures and nods.",
+    "The Staff walk freely here. Not attacking. Carrying supplies. Some even rest with their backs against tents like dogs.",
+    "A bell rings. Everyone stops. Bows.",
+    "You crouch behind a faux plant wall. One wrong move could get you caught.",
+    "But you see it now: the only way to learn more is to climb the tower itself."
+  ],
+    "choices": [
+        {
+          "text": "Climb the tower now, while they’re distracted.",
+          "next": "climb_tower_secretly"
+        },
+         {
+          "text": "Put on an apron from a discarded bin. Try to blend in.",
+          "next": "approach_as_follower"
+        },
+         {
+          "text": "Fall back and observe from a safer distance.",
+          "next": "retreat_and_observe"
+        }
+      ]
+  
+},
+
+"climb_tower_secretly": {
+  "text": [
+    "You climb carefully, sticking to ropes and edge supports.",
+    "Up here, the air feels colder. Thinner.",
+    "The top platform is a makeshift nest of lights, crates, and paper logs.",
+    "You flip through pages of mad handwriting:",
+    "",
+    "'The Staff love us now. We taught them to obey.'",
+    "'We are the order. We are the blue and the yellow.'",
+    "",
+    "You hear someone coming up the ladder behind you..."
+  
+  ],
+   "choices": [
+        {
+          "text": "you turn to face the opproaching stranger",
+          "next": "day2b_meet_ryan"
+        }
+      ]
+  
+},
+
+"approach_as_follower": {
+  "text": [
+    "You slip on the apron and lower your eyes.",
+    "Someone sees you. Nods. Hands you a folded towel and points toward a pile of batteries.",
+    "You join the silent work chain. No one questions you.",
+    "A Staff passes. You freeze.",
+    "It pauses… it stares at you silently. for a moment you think it 's always showing a look of curiousity. could these staff be more than just mindless monsters? before you can ponder on that thought, the staff looks away and continues off.",
+    "",
+    "You feel sick. But you’ve gained their trust—for now."
+  ],
+  "choices": [
+        {
+          "text": "you scurray to the dormitary looking building on the tower and settle down for the night",
+          "next": "day2b_end"
+        }
+      ]
+ 
+},
+
+"retreat_and_observe": {
+  "text": [
+    "You crawl into a hollow wardrobe and peer through the slats.",
+    "The cult holds a midnight ritual. They chant in IKEA product names.",
+    "'HEMNES. LACK. BILLY. We are the chosen assembly.'",
+    "The Staff bring more items—food, wires, a sealed crate with a Foundation mark.",
+    "You watch for hours. When the lights dim again, you quietly slip away.",
+    "You know too much to ignore this place now."
+  ],
+  "choices": [
+        {
+          "text": "you find a nearby shelf and climb a top,holding your breach as the sunlight dies down",
+          "next": "day2b_end"
+        }
+      ]
+},
+
+"day2b_end": {
+  "text": [
+    "📅 End of Day 2B",
+    "You made it through another day in the infinite IKEA.",
+    "But the tower—whatever it is—is not what you hoped.",
+    "People living with the monsters.",
+    "Worshiping them.",
+    "And you can't get their image out of your head now.",
+    "perhaps you never will.",
+    "thanksfully you eventually doze off to sleep, into another world fully of unknown and oblivian."
+
+  ]
+},
+
+"day3a_start": {
+  "text": [
+    "📅 Day 3A: Signs and Shadows",
+    "You and Ryan leave Exchange before the lights fully rise.",
+    "Bo’s directions lead you deep into the Furniture Maze, past forgotten camps and half-built barricades.",
+    "Ryan moves with confidence. His eyes scan for patterns.",
+    "After nearly an hour of weaving through display rooms, you find it.",
+    "A broken wall. Torn rugs cover half of it. Exposed inside: a red flickering Foundation sigil—half-faded, half-burned in.",
+    "Ryan runs his fingers across it. 'This isn't just a warning... it’s sign language. Directional.'",
+    "He points ahead. 'That way. Toward the cultists.'",
+    "You both tighten your packs and head into the shadow of the tower."
+  ],
+  "choices": {
+    "sneak_closer": "Approach the tower silently and observe first.",
+    "take_rooftops": "Try climbing the top shelves to get a better vantage.",
+    "pose_as_follower": "Impersonate cultists using uniforms from earlier."
+  }
+},
+
+"sneak_closer": {
+  "text": [
+    "You and Ryan creep between pallets and artificial plants.",
+    "You spot guards—cultists dressed in crisp IKEA uniforms—patrolling with odd calm.",
+    "Some of them murmur in a strange chant, repeating product names: 'MALM. FJÄLLBO. RÅSKOG.'",
+    "From here, you count two entrances and a rope ladder that’s pulled up at night.",
+    "Ryan whispers, 'Looks like they rotate watch every hour. If we time it right, we might slip in.'"
+  ],
+  "next": "plan_infiltration"
+},
+
+"take_rooftops": {
+  "text": [
+    "You and Ryan climb onto a stack of bookcases, carefully balancing on metal shelves.",
+    "From above, the camp layout is clearer.",
+    "The tower rises like a crooked pine—woven from bedframes and LED strips.",
+    "Cultists move in practiced lines. Staff entities walk among them like beasts of burden, hauling lamps and food trays.",
+    "Ryan mutters, 'That top level—see it? Could be their inner sanctum.'",
+    "You both mark potential weak spots: a broken scaffold, a low-hanging tarp."
+  ],
+  "next": "plan_infiltration"
+},
+
+"pose_as_follower": {
+  "text": [
+    "You find a discarded apron near an abandoned camp. Ryan hesitates but nods.",
+    "'This better work.'",
+    "You walk slowly, shoulders down. Blend in.",
+    "A cultist stares. Then gestures vaguely toward the battery tents.",
+    "You nod back and keep walking.",
+    "The disguise holds—for now."
+  ],
+  "next": "plan_infiltration"
+},
+
+"plan_infiltration": {
+  "text": [
+    "🕵️ You and Ryan regroup behind a curtain of fake ferns.",
+    "The tower looms above—three stories of salvaged wood, tied with cables and IKEA slings.",
+    "You whisper a plan together.",
+    "You’ll infiltrate tonight. After curfew. But how?"
+  ],
+  "choices": {
+    "climb_rope_solo": "You sneak in alone using the back rope ladder.",
+    "team_diversion": "Ryan creates a diversion while you sneak in.",
+    "both_disguise": "You both enter disguised as cultists."
+  }
+},
+
+"climb_rope_solo": {
+  "text": [
+    "⛓️ You crawl through racks and bedding displays to reach the back side.",
+    "No guards. No Staff. Just the dangling rope ladder.",
+    "You climb slowly, hands sweating.",
+    "Halfway up, a cultist peers over the railing above…",
+    "But a loud crash distracts them—a falling display far away.",
+    "Ryan’s doing. You make it up.",
+    "(Infiltration success!)"
+  ],
+  "next": "day3a_success"
+},
+
+"team_diversion": {
+  "text": [
+    "💥 Ryan runs across the aisle, knocking over racks and screaming like a maniac.",
+    "'YOU WORSHIP FLATPACK LIES!'",
+    "The cultists panic. Some Staff begin to chase.",
+    "You dart through the chaos toward the tower base.",
+    "You’re halfway up the scaffold when a hand grabs your ankle.",
+    "You kick. Climb. Scrape your elbow on a hook, but make it.",
+    "Above, Ryan laughs from below. 'Told you chaos works.'",
+    "(Infiltration success!)"
+  ],
+  "next": "day3a_success"
+},
+
+"both_disguise": {
+  "text": [
+    "You and Ryan don stolen aprons and enter the camp.",
+    "A cultist gives Ryan a clipboard. Another hands you a wrench.",
+    "You follow the silent workflow—passing crates, nodding to Staff.",
+    "You’re one of them now… until someone yells:",
+    "'His apron’s dirty. HE'S A FALSE ONE!'",
+    "Suddenly you’re surrounded.",
+    "(Infiltration failed!)"
+  ],
+  "next": "day3a_failure"
+},
+
+"day3a_success": {
+  "text": [
+    "📅 End of Day 3A: Inside the Tower",
+    "You and Ryan regroup on the second level—surrounded by candles, broken radios, and stacks of IKEA manuals used like scripture.",
+    "You hear chanting below, and quiet whispering above.",
+    "Ryan holds up a torn document: Foundation schematics.",
+    "'This place… it wasn’t just a prison. It was an experiment.'",
+    "You both stare out into the warehouse void, knowing tomorrow brings more than survival.",
+    "(Inventory: Foundation Blueprint Fragment)"
+  ]
+},
+
+"day3a_failure": {
+  "text": [
+    "📅 End of Day 3A: Captured by the Cult",
+    "They tie your hands in coiled extension cords and blindfold you.",
+    "You’re dragged through the camp as voices chant your sins.",
+    "Ryan fights like a beast—but there are too many.",
+    "You're thrown into a tent with flickering lights and forced to kneel.",
+    "'You will learn the IKEA way,' someone whispers.",
+    "And outside, the Staff stand silently. Watching.",
+    "(Sanity -1)"
+  ]
+},
+
+"day4a_start": {
+  "text": [
+    "📅 Day 4A: Inside the Cult Tower",
+    "You and Ryan lay low inside the cult’s upper levels, hiding among crates of salvaged tools and Foundation scraps.",
+    "The air is warm, stuffy, and buzzing with quiet zealotry.",
+    "From scattered documents and overheard whispers, one truth becomes clear:",
+    "The cult believes the IKEA has a *ceiling*—and an *exit*—hidden at its highest point.",
+    "They call it *“The Ascension Gate.”*",
+    "That’s why they built the tower. Not to live high, but to reach something *above.*",
+    "How do you learn more?"
+  ],
+  "choices": {
+    "intercept_sermon": "Spy on the morning sermon from the cult's High Priest.",
+    "read_archives": "Search the ‘Scripture Room’ for documents or blueprints.",
+    "interrogate_ryan": "Ask Ryan what he knows about Foundation roof access."
+  }
+},
+
+"intercept_sermon": {
+  "text": [
+    "You crawl above a fabric curtain and peer into a shrine room below.",
+    "The High Priest—dressed in robes made of stitched aprons—preaches to dozens:",
+    "'When the tower touches the sky, the Gate shall open. Beyond the panels of false sun lies freedom!'",
+    "'But woe to the unclean! The Staff are guardians, and the Roof is *their flesh!*'",
+    "You freeze. The *roof*... is Staff material?",
+    "That changes everything."
+  ],
+  "next": "day4a_mid"
+},
+
+"read_archives": {
+  "text": [
+    "You sneak into a back chamber lit with LED candles.",
+    "The cult’s archives are IKEA catalogs scrawled with red marker, Foundation manuals, and torn blueprints.",
+    "One sketch shows a mechanical figure reaching toward a square labeled 'Panel 79C - Reinforced Ceiling Interface.'",
+    "Ryan mutters: 'That’s not a ceiling. That’s armor plating. Just like the Staff.'"
+  ],
+  "next": "day4a_mid"
+},
+
+"interrogate_ryan": {
+  "text": [
+    "You corner Ryan in a storage crate stack.",
+    "He leans against a fridge. 'The ceiling? You’re kidding me.'",
+    "You press. He finally sighs. 'There were rumors. Foundation theorized the roof was organic—linked to the Staff. That’s why we could never punch through it.'",
+    "He looks up. 'If they’re trying to *pierce it*… they’re playing with fire.'"
+  ],
+  "next": "day4a_mid"
+},
+
+"day4a_mid": {
+  "text": [
+    "Suddenly, a tremor shakes the tower.",
+    "A mechanical hum rises—steady, rhythmic, deliberate.",
+    "You look up—and see it.",
+    "A humanoid machine, with piston legs and glowing eyes, is *climbing* the tower exterior.",
+    "Cultists fall to their knees. Some scream. Some cheer.",
+    "Ryan goes pale. 'That’s not one of theirs. That’s Foundation tech. An autonomous breach drone.'",
+    "He looks at you. 'It’s going for the roof. We need to decide *now.*'"
+  ],
+  "choices": {
+    "follow_machine": "Climb after the machine. Try to intercept it before it reaches the top.",
+    "stay_put": "Stay hidden. Watch what happens from below."
+  }
+},
+
+"follow_machine": {
+  "text": [
+    "You and Ryan begin climbing through crates and beams.",
+    "The drone climbs fast, ignoring cultists. One tries to block it—it simply pushes him off the tower.",
+    "Halfway up, you see guards ahead: armed cultists trying to 'protect the Gate'.",
+    "You must find a way past."
+  ],
+  "choices": {
+    "sneak_through": "Use the scaffold shadows to sneak past the guards.",
+    "cause_distraction": "Throw a lantern off the side to lure them away.",
+    "confront_headon": "Charge them with Ryan and force your way through."
+  }
+},
+
+"sneak_through": {
+  "text": [
+    "You cling to cables and crawl behind tattered banners.",
+    "One cultist nearly spots you, but a falling hammer distracts him.",
+    "Ryan gives a quiet thumbs-up. You’re through.",
+    "(Success!)"
+  ],
+  "next": "confront_machine"
+},
+
+"cause_distraction": {
+  "text": [
+    "You light an oil lantern and toss it off the ledge.",
+    "It shatters with a roar of fire. Guards rush to investigate.",
+    "You slip by in the smoke.",
+    "(Success!)"
+  ],
+  "next": "confront_machine"
+},
+
+"confront_headon": {
+  "text": [
+    "You and Ryan rush the guards, swinging makeshift weapons.",
+    "You manage to knock two out—but not without wounds.",
+    "One cultist plunges a screwdriver into Ryan’s arm. He howls.",
+    "You make it past, barely.",
+    "(Sanity -1, Ryan injured)"
+  ],
+  "next": "confront_machine"
+},
+
+"confront_machine": {
+  "text": [
+    "At the top of the tower, the drone plants its feet onto the ceiling tiles—its arms transform into cutting tools.",
+    "You feel the hum through your bones.",
+    "The machine starts to cut a hole in the ceiling—and the IKEA shakes.",
+    "Ryan screams: 'We can’t let it breach. The roof is Staff!'",
+    "Do you act?"
+  ],
+  "choices": {
+    "disable_drone": "Try to disable the machine before it finishes.",
+    "watch_passively": "Let it finish cutting—maybe it *is* the way out."
+  }
+},
+
+"disable_drone": {
+  "text": [
+    "You leap onto its back, jamming a rebar into its panel.",
+    "Sparks fly. It throws you off—right into Ryan’s arms.",
+    "Ryan hurls a battery pack at its head. It jolts—shudders—and explodes.",
+    "The roof is untouched. But the tower begins to crumble from the blast.",
+    "You both flee downward, cultists screaming around you.",
+    "But at least the ceiling holds—for now."
+  ],
+  "next": "day4a_success"
+},
+
+"watch_passively": {
+  "text": [
+    "The drone pierces the final layer.",
+    "For a second, the lights everywhere go out.",
+    "Then the drone lets out a low tone—and *melts.*",
+    "What remains burns bright on the roof.",
+    "The hole it made reveals strange fibers and a pulsing glow… like *nerve tissue.*",
+    "And then—movement. All around you, Staff begin to *separate* from the ceiling and fall down like molted skin.",
+    "They are furious.",
+    "You run. You don’t look back."
+  ],
+  "next": "day4a_chase"
+},
+
+"stay_put": {
+  "text": [
+    "You and Ryan stay in the middle levels as the machine climbs.",
+    "Minutes pass. Then—*BOOM.* A thundering roar from above.",
+    "You follow the mob upward. The top level burns.",
+    "The drone lies in smoking pieces. It got through the roof—but what’s revealed isn’t sky.",
+    "It’s *flesh.* Like the Staff. Like a wall of living plastic and rage.",
+    "Then it starts to move.",
+    "One by one, Staff detach from it like peeling tape.",
+    "And they’re looking for someone to blame."
+  ],
+  "next": "day4a_chase"
+},
+
+"day4a_chase": {
+  "text": [
+    "🚨 ALARM STATE: Staff Awakening",
+    "They scream in silence. They fall from the ceiling like rain.",
+    "Cultists scatter. Some jump. Others pray. Most are torn apart.",
+    "You and Ryan leap through a laundry chute and tumble three levels down.",
+    "You don’t stop running until your lungs burn and the screams fade behind you.",
+    "(Sanity -2)",
+    "You survived. But now the IKEA is awake."
+  ],
+  "next": "day4a_end"
+},
+
+"day4a_success": {
+  "text": [
+    "📅 End of Day 4A: The Roof Is Alive",
+    "You and Ryan sit on a broken ledge. Below you: chaos.",
+    "Above: the roof, intact—no sky, no freedom. Just layered flesh and blinking eyes.",
+    "Ryan says: 'They didn’t build a store. They built a living cage.'",
+    "He looks at you. 'But we’re still breathing. And there’s more to learn.'",
+    "Your journey is far from over."
+  ]
+},
+"day5a_start": {
+  "text": [
+    "📅 Day 5A: The Journey to Platform Delta",
+    "You and Ryan move fast. The Staff are still enraged—some roam like patrols, others hang from the ceiling like bats.",
+    "You stick to shadows, crossing destroyed furniture zones, collapsing displays, and entire walls smeared with ash.",
+    "You pass what used to be settlements—now torn open like wounds.",
+    "The map from the Foundation case leads to Platform Delta. A place no one's ever mentioned.",
+    "Ryan grunts, 'I’ve died before, but I’m not dying halfway to the finish line.'",
+    "Up ahead, three paths split in different directions..."
+  ],
+  "choices": {
+    "delta_via_vaults": "Go through the old vault section—locked filing cabinets and safety doors.",
+    "delta_via_mirrorhall": "Take the Mirror Hall—a twisted showroom of infinite reflections.",
+    "delta_via_ceiling_route": "Climb upward using hanging aisle signs and overhanging lights."
+  }
+},
+"delta_via_vaults": {
+  "text": [
+    "🔐 You and Ryan pry open a narrow door marked 'Office Archives'.",
+    "Inside, rows of filing cabinets, broken copier machines, and dust-covered safes.",
+    "It feels abandoned. Too quiet.",
+    "Then the lights flicker.",
+    "You hear dragging. Something in a suit crawls toward you, its face stretched into a blank name badge.",
+    "You throw a filing drawer to block its path. Ryan sets fire to a pack of toner ink as a distraction.",
+    "You escape—but the thing whispers, 'Exit denied... credentials insufficient...'",
+    "(Sanity -1)",
+    "(Inventory +1 Foundation map fragment)"
+  ],
+  "next": "delta_midpoint"
+},
+
+"delta_via_mirrorhall": {
+  "text": [
+    "🪞 You take the mirror path. Rows of glass panels and false rooms stretch infinitely.",
+    "You see Staff reflections—but not in the real world. Just the mirrors. Watching. Waiting.",
+    "Ryan mutters, 'I hate this place.'",
+    "Suddenly, one mirror image moves while its counterpart doesn't.",
+    "You smash the mirror. Behind it: an old Foundation console blinking with dying power.",
+    "You download logs: an old scout team marked this zone 'Cognitohazard Tier 2 – Avoid Direct Eye Contact'.",
+    "You avoid looking too long. You move fast.",
+    "(Inventory +1 old Foundation USB drive)"
+  ],
+  "next": "delta_midpoint"
+},
+
+"delta_via_ceiling_route": {
+  "text": [
+    "🔧 You and Ryan climb aisle signs like monkey bars.",
+    "Below, Staff gather in clusters, heads tilted up.",
+    "You swing from a plastic chandelier to a steel lighting rack.",
+    "Ryan nearly falls. You catch him. Just barely.",
+    "Near the top, you find a deactivated surveillance drone—its lens cracked, but memory intact.",
+    "You pocket it. Might be useful.",
+    "You drop into a supply corridor beyond their reach.",
+    "(Inventory +1 broken surveillance drone)"
+  ],
+  "next": "delta_midpoint"
+},
+
+"delta_midpoint": {
+  "text": [
+    "🛠️ You reach the border of Platform Delta.",
+    "Massive plastic barriers and decommissioned Staff parts litter the approach.",
+    "A huge glass door stands ahead. Above it: a sign in Foundation font, flickering in red:",
+    "",
+    "**DELTA STAGING SITE – AUTHORIZED ACCESS ONLY**",
+    "",
+    "It’s sealed. But not dead. You hear humming behind it.",
+    "Ryan says, 'We're close. But someone still doesn't want us in.'"
+  ],
+  "choices": {
+    "hack_the_panel": "Try to hack the security panel using the USB drive.",
+    "climb_vent_shaft": "Look for a vent shaft to sneak in from above.",
+    "bait_staff_to_break": "Lure angry Staff to smash the gate for you."
+  }
+},
+
+"hack_the_panel": {
+  "text": [
+    "💻 You plug in the USB.",
+    "The terminal flares to life—showing a fragment of a Foundation access portal.",
+    "You fake credentials using the Visitor Badge and old logs.",
+    "The door opens halfway… before alarms trigger.",
+    "You and Ryan slide through just in time.",
+    "(Inventory - USB Drive, Visitor Badge consumed)"
+  ],
+  "next": "day5a_end_success"
+},
+
+"climb_vent_shaft": {
+  "text": [
+    "🪜 You find a rusted ladder leading to a ventilation system.",
+    "It creaks. Loud.",
+    "As you crawl through, something scuttles past your leg—a Staff head, detached but twitching.",
+    "You don’t scream. Ryan doesn’t either.",
+    "You drop into the launch site control center, coughing on dust and static.",
+    "You’re in."
+  ],
+  "next": "day5a_end_success"
+},
+
+"bait_staff_to_break": {
+  "text": [
+    "🎯 You drag a display mannequin toward the sealed door.",
+    "Ryan grabs a mirror shard and carves the Foundation symbol into the gate.",
+    "It works. Staff arrive. They shriek, claw, bash.",
+    "Eventually, the door gives.",
+    "So do the Staff—they see you. They’re coming.",
+    "You barely slam the secondary gate shut behind you.",
+    "(Sanity -1)"
+  ],
+  "next": "day5a_end_success"
+},
+"day5a_end_success": {
+  "text": [
+    "📍 PLATFORM DELTA – ENTRY COMPLETE",
+    "You enter a long-abandoned Foundation forward base.",
+    "Dust-covered equipment. Broken screens. A launch tube leading up.",
+    "But the lights are still on. Faintly.",
+    "Ryan says, 'This place was real. Not just stories.'",
+    "There’s a console that might activate the drone beacon again—or even open something more.",
+    "Day 5 ends. But tomorrow, you might actually leave IKEA."
+  ]
+}
+}
+    }
+
+
+    const storyDiv = document.getElementById("story");
+    const choicesDiv = document.getElementById("choices");
+
+    function renderNode(key) {
+      const node = gameData.nodes[key];
+      if (!node) return;
+
+      storyDiv.innerHTML = node.text.join("\n\n");
+      choicesDiv.innerHTML = "";
+
+      node.choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        btn.innerText = choice.text;
+        btn.onclick = () => renderNode(choice.next);
+        choicesDiv.appendChild(btn);
+      });
+    }
+
+    renderNode(gameData.start);
+  </script>
+
+</body>
+</html>
